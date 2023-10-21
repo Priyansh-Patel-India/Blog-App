@@ -4,10 +4,12 @@ import mongoose from "mongoose";
 import { DB_URL, PORT } from "./config.js";
 import path from "path";
 import cookieParser from "cookie-parser";
+import { authenticateUserFromCookies } from "./middlewares/authentication.js";
 
 // Routes
 import userRouter from "./routes/userRouter.js";
 import staticRouter from "./routes/staticRouter.js";
+import blogRouter from "./routes/blogRouter.js";
 
 // Middle Wares
 app.use(express.json());
@@ -19,11 +21,9 @@ app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
 
 // Routes
-app.get("/", (req, res) => {
-	res.render("index");
-});
-app.use("/user", userRouter);
 app.use("/", staticRouter);
+app.use("/blog", authenticateUserFromCookies, blogRouter);
+app.use("/user", userRouter);
 
 mongoose
 	.connect(DB_URL)

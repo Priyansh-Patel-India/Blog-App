@@ -26,8 +26,9 @@ export const handleLogin = async (req, res) => {
 	}
 	// Generating Token for each user
 	const token = UserService.setUser(user);
-	res.cookie("uid", token);
-	res.redirect("/");
+	req.user = user;
+	res.cookie("token", token);
+	res.redirect("/blog");
 };
 
 export const renderSignUp = (req, res) => {
@@ -45,5 +46,5 @@ export const handleSignUp = async (req, res) => {
 	}
 	// If Email not found Create One
 	await User.create({ name, email, password });
-	res.redirect("/");
+	res.redirect("/login");
 };

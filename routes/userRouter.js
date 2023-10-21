@@ -4,6 +4,6 @@ import * as userController from "../controller/userController.js";
 
 userRouter
 	.post("/login", userController.handleLogin)
-	.post("/signup", userController.handleSignUp);
+	.post("/signup", userController.handleSignUp)
 
 export default userRouter;

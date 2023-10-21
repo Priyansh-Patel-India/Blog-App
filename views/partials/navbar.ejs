@@ -1,0 +1,179 @@
+<nav
+	style="
+		background-color: #333;
+		color: white;
+		padding: 20px 40px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-family: 'Arial', sans-serif;
+		width: 95%;
+		position: fixed;
+		top: 0;
+	"
+>
+	<span style="font-size: 24px; font-weight: bold">Blogify</span>
+	<div style="display: flex; align-items: center; position: relative">
+		<button
+			style="
+				background: none;
+				border: 2px solid #aaa;
+				border-radius: 30px;
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				padding: 5px;
+				margin: 0;
+			"
+			onclick="toggleDropdown()"
+			onmouseover="buttonHover(true)"
+			onmouseout="buttonHover(false)"
+		>
+			<div
+				style="
+					width: 30px;
+					height: 30px;
+					border-radius: 50%;
+					background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjZottpXdWFHM3FdqTmIeDwHL9CW78YEgZMA8TWVMslKJRYlQoejLxCP_wNSflLumtE_A&usqp=CAU');
+					background-size: cover;
+					background-position: center;
+					background-repeat: no-repeat;
+				"
+			></div>
+			<span style="font-size: 16px; color: gray; margin: 0 8px">
+				USER
+			</span>
+		</button>
+		<div
+			id="dropdown"
+			style="
+				display: none;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				background-color: #444;
+				min-width: 160px;
+				z-index: 1;
+				margin-top: 10px;
+				box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+				border-radius: 5px;
+				padding-top: 8px;
+			"
+		>
+			<div
+				style="
+					color: white;
+					padding: 8px 16px;
+					display: block;
+					border-bottom: 1px solid #666;
+					cursor: pointer; /* Added cursor pointer */
+				"
+				onmouseover="dropdownItemHover(this, true)"
+				onmouseout="dropdownItemHover(this, false)"
+				onclick="toggleThemeDropdown()"
+			>
+				Theme
+			</div>
+			<div
+				id="themeDropdown"
+				style="
+					display: none;
+					position: absolute;
+					top: 0;
+					left: -160px; /* Updated to left */
+					background-color: #444;
+					min-width: 160px;
+					z-index: 1;
+					margin-top: 0;
+					box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+					border-radius: 5px;
+					padding-top: 8px;
+				"
+			>
+				<div
+					style="
+						color: white;
+						padding: 8px 16px;
+						display: block;
+						border-bottom: 1px solid #666;
+						cursor: pointer; /* Added cursor pointer */
+					"
+					onmouseover="dropdownItemHover(this, true)"
+					onmouseout="dropdownItemHover(this, false)"
+				>
+					Light
+				</div>
+				<div
+					style="
+						color: white;
+						padding: 8px 16px;
+						display: block;
+						border-bottom: 1px solid #666;
+						cursor: pointer; /* Added cursor pointer */
+					"
+					onmouseover="dropdownItemHover(this, true)"
+					onmouseout="dropdownItemHover(this, false)"
+				>
+					Dark
+				</div>
+			</div>
+			<div
+				style="
+					color: white;
+					padding: 8px 16px;
+					display: block;
+					border-bottom: 1px solid #666;
+					cursor: pointer; /* Added cursor pointer */
+				"
+				onmouseover="dropdownItemHover(this, true)"
+				onmouseout="dropdownItemHover(this, false)"
+			>
+				Your Blogs
+			</div>
+			<div
+				style="
+					color: white;
+					padding: 8px 16px;
+					display: block;
+					border-bottom: 1px solid #666;
+					cursor: pointer; /* Added cursor pointer */
+				"
+				onmouseover="dropdownItemHover(this, true)"
+				onmouseout="dropdownItemHover(this, false)"
+			>
+				Logout
+			</div>
+			<div
+				style="
+					color: white;
+					padding: 8px 16px;
+					display: block;
+					border-bottom: 1px solid #666;
+					cursor: pointer;
+				"
+				onmouseover="dropdownItemHover(this, true)"
+				onmouseout="dropdownItemHover(this, false)"
+			>
+				Feedback
+			</div>
+		</div>
+	</div>
+</nav>
+
+<script>
+	function toggleDropdown() {
+		var dropdown = document.getElementById("dropdown");
+		dropdown.style.display =
+			dropdown.style.display === "none" ? "block" : "none";
+	}
+
+	function toggleThemeDropdown() {
+		var themeDropdown = document.getElementById("themeDropdown");
+		themeDropdown.style.display =
+			themeDropdown.style.display === "none" ? "block" : "none";
+	}
+
+	function dropdownItemHover(item, isHover) {
+		item.style.backgroundColor = isHover ? "#555" : "#444";
+	}
+</script>

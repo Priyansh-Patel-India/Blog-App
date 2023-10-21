@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				font-family: "Arial", sans-serif;
+				background-color: #292b2c;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+				width: 100vw;
+			}
+
+			form {
+				background-color: #444;
+				padding: 40px;
+				border-radius: 8px;
+				box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+				text-align: center;
+				width: 400px;
+			}
+
+			h1 {
+				color: #fff;
+			}
+
+			label {
+				display: block;
+				margin-top: 20px;
+				color: #ddd;
+				float: left;
+			}
+
+			input {
+				width: 100%;
+				padding: 15px;
+				margin-top: 8px;
+				box-sizing: border-box;
+				border: 1px solid #777;
+				border-radius: 4px;
+				background-color: #333;
+				color: #fff;
+				font-size: 18px;
+			}
+
+			button {
+				background-color: #5bc0de;
+				color: white;
+				padding: 12px 20px;
+				border: none;
+				border-radius: 4px;
+				cursor: pointer;
+				font-size: 18px;
+				margin-top: 20px;
+			}
+
+			button:hover {
+				background-color: #31b0d5;
+			}
+		</style>
+		<title>Blog App | Sign Up</title>
+	</head>
+
+	<body style="margin: 0; padding: 0">
+		<%- include('./partials/navbar.ejs') %>
+		<div class="container">
+			<form
+				action="/user/signup"
+				method="post"
+			>
+				<h1>Sign up</h1>
+				<% if (locals.error) { %>
+				<p style="color: red"><%= error %></p>
+				<% } %>
+				<label for="name">Name</label>
+				<input
+					required
+					type="text"
+					placeholder="Name"
+					name="name"
+					id="name"
+				/>
+				<label for="email">Email</label>
+				<input
+					required
+					type="email"
+					placeholder="example@gmail.com"
+					name="email"
+					id="email"
+				/>
+				<label for="password">Password</label>
+				<input
+					required
+					type="password"
+					placeholder="Password"
+					name="password"
+					id="password"
+				/>
+				<button type="submit">SIGN UP</button>
+			</form>
+		</div>
+	</body>
+</html>

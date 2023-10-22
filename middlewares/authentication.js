@@ -35,6 +35,6 @@ export async function checkStatus(req, res, next) {
 	// If User Exists
 	const user = UserService.getUser(userToken);
 	const fullDetails = await User.findById(user._id);
-	req.user = fullDetails;
+	res.locals.user = fullDetails;
 	next();
 }

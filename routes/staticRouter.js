@@ -4,7 +4,7 @@ import { checkStatus } from "../middlewares/authentication.js";
 
 staticRouter
 	.get("/", async (req, res) => {
-		res.render("index");
+		res.redirect("/blog");
 	})
 	.get("/signup", async (req, res) => {
 		res.render("signup");

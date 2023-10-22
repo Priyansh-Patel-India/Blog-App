@@ -13,7 +13,7 @@ import blogRouter from "./routes/blogRouter.js";
 
 // Middle Wares
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // Set View Engine

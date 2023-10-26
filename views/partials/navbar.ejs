@@ -65,7 +65,7 @@
 		display: block;
 		border-bottom: 1px solid #666;
 		cursor: pointer;
-		font-size: 18px;
+		font-size: 16px;
 	}
 
 	.buttons {
@@ -104,12 +104,13 @@
 		</button>
 		<div id="dropdown">
 			<% if (locals.user) { %>
-			<div
+			<a
 				onmouseover="dropdownItemHover(this, true)"
 				onmouseout="dropdownItemHover(this, false)"
+				href="/myBlogs"
 			>
-				YOUR BLOGS
-			</div>
+				MY BLOGS
+			</a>
 			<% } %>
 			<a
 				href="<%= locals.user ? '/logout' : '/login' %>"

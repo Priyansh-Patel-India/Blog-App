@@ -1,6 +1,7 @@
 import express, { Router } from "express";
 const staticRouter = express.Router();
 import { checkStatus } from "../middlewares/authentication.js";
+import FeedBack from "../models/feedbackModel.js";
 
 staticRouter
 	.get("/", async (req, res) => {
@@ -20,6 +21,14 @@ staticRouter
 	})
 	.get("/addBlog", checkStatus, async (req, res) => {
 		res.render("addBlog");
+	})
+	.get("/myBlogs", checkStatus, async (req, res) => {
+		res.render("myBlogs");
+	})
+	.post("/feedback", async (req, res) => {
+		const { feedback } = req.body;
+		await FeedBack.create({ feedback });
+		res.redirect("/");
 	});
 
 export default staticRouter;

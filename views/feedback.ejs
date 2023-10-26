@@ -7,8 +7,100 @@
 			content="width=device-width, initial-scale=1.0"
 		/>
 		<title>Blog App | Feedback</title>
+		<style>
+			body {
+				background-color: #1a1a1a;
+				color: #ffffff;
+				font-family: "Montserrat", sans-serif;
+				margin: 0;
+				padding: 0;
+			}
+
+			.body {
+				padding: 20px;
+				margin-top: 120px;
+				position: relative;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			label {
+				color: #ffffff;
+				margin-bottom: 10px;
+				display: block;
+				font-family: "Montserrat", sans-serif;
+			}
+			textarea {
+				width: 600px;
+				padding: 10px;
+				font-size: 16px;
+				background-color: #333333;
+				color: #ffffff;
+				border: 1px solid #666666;
+				border-radius: 5px;
+				margin-bottom: 20px;
+				box-sizing: border-box;
+				font-family: "Montserrat", sans-serif;
+			}
+
+			.send-button {
+				background-color: #ffcc00;
+				color: #000000;
+				padding: 10px 15px;
+				font-size: 16px;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				font-family: "Montserrat", sans-serif;
+			}
+			.back-btn {
+				position: absolute;
+				padding: 10px 20px;
+				margin-bottom: 20px;
+				background: #ffcc00;
+				top: -10px;
+				right: 30px;
+				color: #000000;
+				text-decoration: none;
+				font-size: 16px;
+				cursor: pointer;
+				border-radius: 5px;
+			}
+		</style>
 	</head>
 	<body>
-		Feedback
+		<%- include('./partials/navbar.ejs') %>
+		<div class="body">
+			<a
+				class="back-btn"
+				href="/"
+				>Back</a
+			>
+
+			<form
+				class="input-wrapper"
+				action="/feedback"
+				method="post"
+			>
+				<label for="feedback">FeedBack</label>
+				<textarea
+					class="feedbackInput"
+					id="feedback"
+					rows="12"
+					name="feedback"
+					required
+				></textarea>
+
+				<button
+					class="send-button"
+					type="submit"
+				>
+					Send
+				</button>
+			</form>
+		</div>
 	</body>
 </html>

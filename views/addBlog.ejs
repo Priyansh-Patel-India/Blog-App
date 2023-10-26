@@ -21,12 +21,8 @@
 
 			.body {
 				padding: 20px;
-			}
-
-			.input-wrapper {
-				position: relative;
 				margin-top: 120px;
-				font-family: "Montserrat", sans-serif;
+				position: relative;
 			}
 
 			label {
@@ -37,8 +33,7 @@
 			}
 
 			input.titleInput,
-			textarea.blogInput,
-			input.coverImageInput {
+			textarea.blogInput {
 				width: 100%;
 				padding: 10px;
 				font-size: 16px;
@@ -49,14 +44,6 @@
 				margin-bottom: 20px;
 				box-sizing: border-box;
 				font-family: "Montserrat", sans-serif;
-			}
-
-			input.coverImageInput {
-				background-color: #444;
-				color: #ffffff;
-				border: 1px solid #666;
-				border-radius: 5px;
-				box-sizing: border-box;
 			}
 
 			button.publish-button {
@@ -77,12 +64,31 @@
 				width: 20px;
 				height: 20px;
 			}
+			.back-btn {
+				position: absolute;
+				padding: 10px 20px;
+				margin-bottom: 20px;
+				background: #ffcc00;
+				top: -10px;
+				right: 30px;
+				color: #000000;
+				text-decoration: none;
+				font-size: 16px;
+				cursor: pointer;
+				border-radius: 5px;
+			}
 		</style>
 		<title>Blog App | Add Blog</title>
 	</head>
 	<body>
 		<%- include('./partials/navbar.ejs') %>
 		<div class="body">
+			<a
+				class="back-btn"
+				href="/"
+				>Back</a
+			>
+
 			<form
 				class="input-wrapper"
 				action="/blog"

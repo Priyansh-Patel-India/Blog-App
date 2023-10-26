@@ -1,4 +1,5 @@
 import User from "../models/userModel.js";
+import Blog from "../models/blogModel.js";
 import * as UserService from "../service/auth.js";
 
 export async function authenticateUserFromCookies(req, res, next) {
@@ -35,6 +36,11 @@ export async function checkStatus(req, res, next) {
 	// If User Exists
 	const user = UserService.getUser(userToken);
 	const fullDetails = await User.findById(user._id);
+	const allBlogs = await Blog.find();
+	const myBlogs = allBlogs.filter(
+		(blog) => blog.createdBy.toString() === user._id.toString()
+	);
+	res.locals.myBlogs = myBlogs;
 	res.locals.user = fullDetails;
 	next();
 }
